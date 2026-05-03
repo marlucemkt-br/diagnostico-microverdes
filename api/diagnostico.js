@@ -3,23 +3,13 @@ export default async function handler(req, res) {
 
   try {
     let body = req.body;
-    
-    // Garante que o body foi parseado
-    if (typeof body === 'string') {
-      body = JSON.parse(body);
-    }
-    
+    if (typeof body === 'string') body = JSON.parse(body);
+
     const prompt = body?.prompt;
-    
-    if (!prompt) {
-      return res.status(400).json({ error: 'Prompt vazio', body: body });
-    }
+    if (!prompt) return res.status(400).json({ error: 'Prompt vazio' });
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
-    
-    if (!apiKey) {
-      return res.status(500).json({ error: 'Chave de API não configurada' });
-    }
+    if (!apiKey) return res.status(500).json({ error: 'Chave não configurada' });
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -29,20 +19,16 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-       model: 'claude-sonnet-4-5',
-        max_tokens: 1800,
+        model: 'claude-sonnet-4-5',
+        max_tokens: 2400,
         messages: [{ role: 'user', content: prompt }],
       }),
     });
 
     const data = await response.json();
-    
-    if (!response.ok) {
-      return res.status(500).json({ error: 'Erro Anthropic', details: data });
-    }
+    if (!response.ok) return res.status(500).json({ error: 'Erro Anthropic', details: data });
 
     const texto = data.content?.[0]?.text || '{}';
-    
     try {
       return res.status(200).json(JSON.parse(texto));
     } catch {
