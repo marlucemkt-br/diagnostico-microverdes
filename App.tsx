@@ -500,9 +500,9 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado }) {
       </Card>
 
       <Card>
-        <SecTitle emoji="📈" titulo="Diagnóstico de tempo e retorno de investimento" />
-        <p style={{ ...bodyTxt, whiteSpace:"pre-line" }}>{diagnostico.bloco3_retorno}</p>
-      </Card>
+  <SecTitle emoji="📈" titulo="Diagnóstico de tempo e retorno de investimento" />
+  <BlocoRetorno texto={diagnostico.bloco3_retorno} respostas={{p15: respostas?.p15, p12: respostas?.p12, p18: respostas?.p18}} />
+</Card>
 
       <Card>
         <SecTitle emoji="💰" titulo="Diagnóstico do investimento inicial" />
