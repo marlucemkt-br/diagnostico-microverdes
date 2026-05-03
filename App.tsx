@@ -13,23 +13,20 @@ const CONFIG = {
 };
 // ============================================================
 
-// Diagnóstico simulado — só usado quando PREVIEW_MODE: true
 const MOCK_DIAGNOSTICO = {
-  bloco1_perfil: "Carlos tem um perfil de empreendedor realista que busca construir uma renda extra consistente sem abandonar sua segurança atual. Sua disposição de começar pequeno e validar antes de escalar é exatamente o caminho certo para o mercado de microverdes. Com 1 a 2 horas diárias disponíveis e espaço em quintal, você tem o essencial para dar o primeiro passo com método.",
-  bloco2_mercado: "Sua cidade de 50 a 100 mil habitantes tem potencial real, especialmente com a presença de alguns restaurantes e público fitness identificado. O fato de nunca ter visto microverdes sendo vendidos localmente não é um obstáculo — é uma janela. Quem chega primeiro com consistência e qualidade tende a ocupar esse espaço antes que outros produtores se estabeleçam.",
-  bloco3_producao: "Fase 1 — Validação (semanas 1 a 4): comece com 1 a 2 bandejas no quintal, objetivo é conquistar 1 cliente real, faturamento bruto estimado de R$ 0 a R$ 350. Fase 2 — Primeiros clientes (mês 2): com 1 a 2 compradores recorrentes consumindo ~250g/semana cada, potencial estimado de R$ 350 a R$ 700/mês bruto. Fase 3 — Recorrência (mês 3 em diante): com 4 a 5 clientes e 1m² bem utilizado, potencial de até R$ 1.000/mês/m² bruto — desde que haja consistência de produção e entrega.",
-  bloco4_investimento: "Com R$ 500 a R$ 1.500 disponíveis, seu primeiro passo é montar uma estrutura simples de até 1m²: bandejas profissionais, substrato de qualidade e sementes fáceis como rabanete e girassol. O que evitar agora: comprar sementes raras antes de validar o gosto do mercado local, montar prateleiras caras antes de ter clientes confirmados, e investir em embalagem premium antes de ter pedido recorrente. Esses erros custam dinheiro e são o motivo número 1 de desistência.",
+  bloco1_perfil: "Marluce tem um perfil de empreendedora com clareza de objetivo e disposição real para começar. Sua busca por renda extra com baixo risco mostra maturidade empreendedora. Com espaço disponível e tempo para se dedicar, você tem o essencial — o que falta é entrar com método, não no impulso.",
+  bloco2_mercado: "Sua cidade tem potencial real. O fato de nunca ter visto microverdes sendo vendidos localmente não é um obstáculo — é uma janela. O mercado global de microverdes atingiu US$ 3 bilhões em 2025 e deve chegar a US$ 5,2 bilhões até 2030 (Fonte: Mordor Intelligence, 2025). Quem chega primeiro, bem preparado, tende a ocupar esse espaço antes que outros produtores se estabeleçam.",
+  bloco3_retorno: "Considerando seu investimento, espaço e tempo disponível, veja o caminho realista: FASE 1 — Semanas 1 e 2: aprendizagem, estudo e pesquisa de mercado. Quem busca informações soltas na internet pode levar o dobro do tempo — quem está ao vivo com Marcos encurta esse prazo com direção clara. FASE 2 — Semanas 3 e 4: primeiras bandejas e abordagem de clientes, faturamento bruto estimado de R$ 0 a R$ 350. FASE 3 — Mês 2: primeiros clientes recorrentes, potencial estimado de R$ 350 a R$ 700 por mês. FASE 4 — Mês 3 em diante: com 4 a 5 clientes fixos e 1m² bem utilizado, potencial de até R$ 1.000 por mês por m² desde que haja consistência. Retorno estimado do investimento inicial: entre 45 e 75 dias. Para chegar a R$ 5.000 por mês, o caminho passa por 5 a 7 m² em operação com carteira de clientes recorrentes.",
+  bloco4_investimento: "Microverdes é um dos negócios mais democráticos do Brasil para começar — pouco capital, retorno rápido quando feito certo. Mas não é jogo do tigrinho: requer investimento, seriedade, estudo, testes e trabalho. Com o valor disponível, seu primeiro passo é montar uma estrutura simples e validar antes de escalar. Evite os erros mais comuns: comprar semente difícil antes de validar o mercado local, montar estrutura cara antes de ter cliente confirmado, gastar em embalagem premium antes de ter pedido recorrente. Esses erros custam dinheiro e tempo e são o motivo número 1 de desistência. Nas aulas ao vivo, Marcos mostra exatamente como evitar esses erros desde o primeiro dia.",
   bloco5_riscos: [
-    "Produzir antes de ter cliente confirmado — o risco de ficar com bandeja pronta e sem comprador é real e desmotiva rápido.",
-    "Comprar sementes difíceis de cultivar no início — erros de germinação custam tempo, dinheiro e confiança.",
-    "Ignorar a cidade maior próxima — restaurantes de maior porte e lojas de produtos naturais são clientes de alto volume.",
-    "Não manter consistência nas primeiras entregas — uma falha para restaurante pode fechar a porta definitivamente.",
+    "Produzir antes de ter cliente confirmado — o risco de ficar com bandeja pronta e sem comprador é real e desmotiva rápido. Nas aulas ao vivo, Marcos ensina como abordar clientes antes mesmo de plantar.",
+    "Comprar sementes erradas no início — erros de germinação custam tempo, dinheiro e confiança. No mini curso, Marcos mostra quais variedades funcionam para quem está começando.",
+    "Começar sozinho, pesquisando informações soltas na internet sem uma jornada definida — isso dá margem para outro produtor local entrar mais preparado e ser pioneiro na sua região. O mercado de microverdes no Brasil ainda não saturou. A janela de pioneirismo está aberta — mas não fica aberta para sempre. Solução: estar ao vivo com Marcos e seguir uma jornada estruturada.",
+    "Não manter consistência nas primeiras entregas — uma falha para um restaurante fecha essa porta definitivamente. Nas aulas ao vivo, Marcos explica como organizar produção e entrega para nunca furar um cliente.",
   ],
-  bloco6_consistencia: "Consistência não é diferencial no mercado de microverdes — é pré-requisito. Restaurantes cortam fornecedor na primeira semana de falha sem aviso prévio, porque precisam de previsibilidade para montar cardápio. Plantar apenas o que você já tem intenção de venda e manter um calendário fixo de colheita e entrega é o que separa quem constrói carteira de clientes de quem fica rodando sem crescer.",
-  bloco7_plano15dias: [
-    "passo 1: explique que tentar sozinho sem método é o caminho mais caro — em tempo, dinheiro e frustração", "passo 2: diga que o curso gratuito de 3 dias foi criado exatamente para mostrar como o negócio funciona de verdade, como o mercado se comporta e como entrar do jeito certo", "passo 3: diga que quem assiste o curso antes de comprar qualquer insumo ou montar qualquer estrutura economiza meses de erro", "passo 4: oriente que o próximo passo agora não é plantar — é assistir as aulas preparatórias e entender o método completo", "passo 5: diga que o diagnóstico mostrou o potencial, mas o curso mostra o caminho", "passo 6: termine com uma frase de encorajamento para dar o próximo passo agora",
-  ],
-  bloco8_transformacao: "Imagine acordar sabendo que tem entregas para fazer nesta semana — não por obrigação, mas porque você construiu isso. Imagine trocar parte do cansaço do trabalho atual pela sensação de ver algo crescendo, literalmente, no seu quintal. O começo não precisa ser grande nem perfeito. Precisa ser consistente, com método e com os clientes certos. Você tem o espaço, tem o tempo mínimo necessário e agora tem o diagnóstico — o que falta é o método completo para não começar errado.",
+  bloco6_consistencia: "Consistência não é diferencial no mercado de microverdes — é pré-requisito. Restaurantes cortam fornecedor na primeira falha sem aviso prévio porque precisam de previsibilidade para montar cardápio. Plantar apenas o que você já tem intenção de venda e manter um calendário fixo de colheita e entrega é o que separa quem constrói carteira de clientes de quem fica rodando sem crescer.",
+  bloco7_proximo_passo: "Eu, Marcos, vou estar 3 dias ao vivo com você. E quem estiver presente vai receber uma informação exclusiva que eu não vou repetir no replay.\n\n📅 DIA 1 — O Choque da Oportunidade\nVou te mostrar por que esse mercado ainda está invisível na maioria das cidades do Brasil — e por que isso é uma vantagem enorme para quem entra agora. Números reais, margens reais, como começar com menos do que você imagina.\nPor que não pode perder: sem essa clareza, a tendência é continuar adiando. E enquanto você adia, alguém na sua cidade pode estar se preparando para entrar antes.\nRisco de não aparecer: quem não entende o negócio entra no impulso — compra errado, monta estrutura antes de ter cliente e desiste achando que microverdes não funciona. O problema nunca foi o produto. Foi a entrada.\n\n📅 DIA 2 — O Jeito Certo de Entrar\nVou te mostrar como começar com investimento controlado, o que comprar primeiro, o que evitar — e a diferença entre entrar como profissional ou como aventureiro.\nPor que não pode perder: a maioria das pessoas não falha por falta de vontade. Falha porque entra sem direção — e perde dinheiro, tempo e mercado antes de ver resultado.\nRisco de não aparecer: se queimar no mercado local não tem volta. Uma entrega furada para um restaurante fecha essa porta definitivamente.\n\n📅 DIA 3 — Vendas e Recorrência\nVou te mostrar o coração do negócio — o Método Casamento de Vendas. Como mapear os clientes certos na sua cidade, como vender antes de plantar e como transformar uma venda em cliente fixo toda semana.\nPor que não pode perder: produzir sem vender é trabalhar pra ninguém. Recorrência é o que transforma esforço em previsibilidade.\nRisco de não aparecer: o mercado de microverdes no Brasil ainda não saturou. A janela de pioneirismo na sua cidade ainda está aberta — mas não fica aberta para sempre.\n\nEssas aulas são ao vivo. Eu vou estar presente, respondendo suas dúvidas, olhando para o seu caso. Quem assiste ao vivo sai com clareza e decisão. Quem vê o replay — adia mais uma vez. Eu te espero lá.",
+  bloco8_transformacao: "Imagine acordar sabendo que tem entregas para fazer nesta semana — não por obrigação, mas porque você construiu isso. Imagine trocar o cansaço da rotina atual pela sensação de ver algo crescendo, literalmente, no seu espaço. O cenário negativo é real: cada semana que passa sem direção é uma semana que outro produtor pode estar se preparando para ocupar o seu mercado local. Você tem o espaço, tem o tempo e agora tem o diagnóstico — o próximo passo é simples: estar ao vivo.",
 };
 
 const PERGUNTAS = [
@@ -152,40 +149,51 @@ function calcularPerfil(respostas) {
 }
 
 async function gerarDiagnostico(respostas, nome, perfil, scoreMercado) {
-  if (CONFIG.PREVIEW_MODE || CONFIG.ANTHROPIC_API_KEY.startsWith("COLE_AQUI")) {
+  if (CONFIG.PREVIEW_MODE) {
     await new Promise(r => setTimeout(r, 3000));
     return MOCK_DIAGNOSTICO;
   }
 
   const preocupacoes = Array.isArray(respostas.p3) ? respostas.p3.join(", ") : respostas.p3;
 
-  const prompt = `Você é um consultor especialista em negócios de microverdes no Brasil. Tom: consultivo, realista, esperançoso, direto, humano. Nunca prometa resultados garantidos. Use "potencial estimado", "faturamento bruto estimado", "desde que haja consistência".
+  const prompt = `Você é Marcos Rosetti, cientista ambiental, produtor de microverdes há 5 anos, dono da Plântula em Brasília, que já produziu e vendeu mais de 6 toneladas de microverdes e fatura 60 mil reais mensais. Você ensina pessoas comuns a empreender com microverdes. Tom: humano, direto, simples, como uma conversa real — não corporativo. Fala em primeira pessoa quando faz sentido. Nunca prometa resultados garantidos. Use sempre "potencial estimado", "faturamento bruto estimado", "desde que haja consistência de produção e vendas". Cada bloco deve terminar com uma frase de gancho curta que cria curiosidade para continuar lendo — tom amigável, não publicitário.
 
-Gere diagnóstico personalizado para ${nome}. Responda APENAS com JSON válido, sem markdown:
+Responda APENAS com JSON válido, sem markdown, sem texto fora do JSON:
 
 {
-  "bloco1_perfil": "2-3 frases sobre o perfil de ${nome}. Perfil: ${perfil}. Score mercado: ${scoreMercado}/100.",
-  "bloco2_mercado": "2-3 frases sobre potencial local/regional. Cidade pequena + cidade maior próxima = produção local, venda regional. Já tem produtor = diferenciação necessária. Nunca viu = vantagem de quem chega primeiro.",
-  "bloco3_producao": "Potencial em 3 fases com números. Fase 1 sem 1-4: 1-2 bandejas, R$0-350 bruto. Fase 2 mês 2: 1-2 clientes 250g/semana, R$350-700/mês bruto. Fase 3 mês 3+: 4-5 clientes, 1m², até R$1.000/m²/mês bruto desde que haja consistência.",
-  "bloco4_investimento": "2-3 frases sobre o valor informado e área sugerida. Citar claramente: erro nº1 é comprar semente difícil, montar estrutura cara sem cliente, gastar em embalagem antes de vender — isso é o motivo nº1 de desistência.",
-  "bloco5_riscos": ["risco personalizado 1","risco personalizado 2","risco personalizado 3","risco personalizado 4"],
-  "bloco6_consistencia": "2 frases. Consistência é pré-requisito. Restaurantes cortam fornecedor na 1ª falha. Plantar sem cliente = principal motivo de desistência.",
-  "bloco7_plano15dias": ["passo 1","passo 2","passo 3","passo 4","passo 5","passo 6"],
-  "bloco8_transformacao": "3-4 frases emocionais baseadas na dor '${respostas.p2}'. Começar com Imagine. Terminar com encorajamento realista."
+  "bloco1_perfil": "2-3 frases descrevendo o perfil de ${nome} como empreendedor de microverdes. Perfil calculado: ${perfil}. Score de mercado: ${scoreMercado}/100. Tom humano e direto. Termine com frase de gancho curta criando curiosidade para continuar lendo.",
+
+  "bloco2_mercado": "2-3 frases sobre o potencial de mercado local e regional de ${nome}. Se cidade pequena com cidade maior próxima: destacar produção local mais venda regional 2x por semana. Se já tem produtor: validação de mercado existe, diferenciação por qualidade e consistência é o caminho. Se nunca viu microverdes: mercado virgem, vantagem de quem chega bem preparado primeiro. Mencione que o mercado global de microverdes atingiu US$ 3 bilhões em 2025 com projeção de US$ 5,2 bilhões até 2030 — Fonte: Mordor Intelligence, 2025 — e que no Brasil o crescimento também é consistente. Termine com frase de gancho.",
+
+  "bloco3_retorno": "Diagnóstico considerando as variáveis de ${nome}: investimento ${respostas.p15}, espaço ${respostas.p12}, tempo diário ${respostas.p18}, cidade ${respostas.p4}. Estruture em 4 fases claras: FASE 1 — Semanas 1 e 2: aprendizagem, estudo e pesquisa de mercado. Avise que quem busca informações soltas na internet pode levar o dobro do tempo, e que quem está ao vivo com Marcos encurta esse prazo com direção clara. FASE 2 — Semanas 3 e 4: primeiras bandejas e abordagem de clientes, faturamento bruto estimado R$ 0 a R$ 350. FASE 3 — Mês 2: primeiros clientes recorrentes, faturamento bruto estimado R$ 350 a R$ 700 por mês. FASE 4 — Mês 3 em diante: com 4 a 5 clientes fixos e 1m² bem utilizado, potencial de até R$ 1.000 por mês por m² desde que haja consistência. Ao final indique: prazo estimado de retorno do investimento inicial, quanto reinvestir e em quanto tempo o faturamento pode chegar a R$ 5.000 por mês considerando o espaço informado. Termine com gancho.",
+
+  "bloco4_investimento": "Comece dizendo que todo negócio precisa de investimento e que microverdes é um dos negócios mais democráticos do Brasil para começar — pouco capital, retorno rápido quando feito certo. Mas deixe claro: não é jogo do tigrinho, não é fórmula mágica. Requer investimento, seriedade, estudo, testes e trabalho. Com o valor informado que é ${respostas.p15}, diga o que faz sentido priorizar. Liste os erros mais comuns a evitar: comprar semente difícil antes de validar o mercado local, montar estrutura cara antes de ter cliente, gastar em embalagem premium antes de ter pedido recorrente. Esses erros custam dinheiro e tempo e são o motivo número 1 de desistência. Diga que nas aulas ao vivo Marcos mostra exatamente como evitar esses erros desde o primeiro dia. Termine com gancho.",
+
+  "bloco5_riscos": [
+    "Risco 1 personalizado para o perfil de ${nome} baseado nas respostas. Ao final cite que a solução para esse risco específico é ensinada nas aulas ao vivo com Marcos.",
+    "Risco 2 personalizado. Ao final cite que a solução é ensinada nas aulas ao vivo com Marcos.",
+    "SEMPRE incluir este risco: começar sozinho, pesquisar informações soltas na internet, aprender no erro sem jornada definida. Isso dá margem para outro produtor local entrar mais preparado e ser pioneiro na região. O mercado de microverdes no Brasil ainda não saturou — a janela de pioneirismo está aberta, mas não fica aberta para sempre. Solução: estar ao vivo nas aulas com Marcos e seguir uma jornada estruturada.",
+    "Risco 4 personalizado. Ao final cite que a solução é ensinada nas aulas ao vivo com Marcos."
+  ],
+
+  "bloco6_consistencia": "2 frases fortes. Consistência não é diferencial — é pré-requisito. Restaurantes cortam fornecedor na primeira falha sem aviso porque precisam de previsibilidade para montar cardápio. Plantar sem cliente garantido é o erro que mais gera desistência e queima reputação local. Termine com gancho curto.",
+
+  "bloco7_proximo_passo": "Escreva como Marcos Rosetti falando diretamente para ${nome}, em primeira pessoa, tom simples e humano. Use quebras de linha reais entre seções. Estruture assim:\n\nAbertura: diga que vai estar 3 dias ao vivo com ${nome} e que quem estiver presente ao vivo vai receber uma informação exclusiva que não será repetida no replay.\n\nDIA 1 — O Choque da Oportunidade: O que vou te mostrar: por que esse mercado ainda está invisível na maioria das cidades do Brasil e por que isso é uma vantagem enorme para quem entra agora. Números reais, margens reais, como começar com menos do que você imagina. Por que você não pode perder: sem essa clareza a tendência é continuar adiando — e enquanto você adia alguém na sua cidade pode estar se preparando para entrar antes. Risco de não aparecer: quem não entende o negócio entra no impulso, compra errado, monta estrutura antes de ter cliente e desiste achando que microverdes não funciona — o problema nunca foi o produto, foi a entrada.\n\nDIA 2 — O Jeito Certo de Entrar: O que vou te mostrar: como começar com investimento controlado, o que comprar primeiro, o que evitar, e a diferença entre entrar como profissional ou como aventureiro. Essa diferença define quem domina o mercado local e quem se queima nele. Por que você não pode perder: a maioria das pessoas não falha por falta de vontade — falha porque entra sem direção e perde dinheiro, tempo e mercado antes de ver resultado. Risco de não aparecer: se queimar no mercado local não tem volta — uma entrega furada para um restaurante fecha essa porta definitivamente.\n\nDIA 3 — Vendas e Recorrência: O que vou te mostrar: o coração do negócio — o Método Casamento de Vendas. Como mapear os clientes certos na sua cidade, como vender antes de plantar e como transformar uma venda em cliente fixo toda semana. Por que você não pode perder: produzir sem vender é trabalhar pra ninguém — recorrência é o que transforma esforço em previsibilidade. Risco de não aparecer: o mercado de microverdes no Brasil ainda não saturou — a janela de pioneirismo na sua cidade ainda está aberta, mas não fica aberta para sempre.\n\nFechamento: Essas aulas são ao vivo. Eu vou estar presente, respondendo suas dúvidas, olhando para o seu caso. Quem assiste ao vivo sai com clareza e decisão. Quem vê o replay — adia mais uma vez. Eu te espero lá.",
+
+  "bloco8_transformacao": "3-4 frases emocionais baseadas na dor principal de ${nome} que é ${respostas.p2}. Comece com Imagine. Mostre o cenário positivo — o que a vida pode ser com um negócio que funciona — e o cenário negativo — o custo invisível de continuar adiando: tempo perdido, mercado perdido, outro produtor chegando primeiro. Termine com encorajamento realista e humano, sem exagero."
 }
 
 Respostas de ${nome}: objetivo=${respostas.p1} | momento=${respostas.p2} | preocupações=${preocupacoes} | cidade=${respostas.p4} | cidade próxima=${respostas.p5} | estabelecimentos=${respostas.p7} | concorrência=${respostas.p8} | público saudável=${respostas.p9} | espaço=${respostas.p11} | tamanho=${respostas.p12} | investimento=${respostas.p15} | tempo diário=${respostas.p18} | experiência comercial=${respostas.p21} | bloqueio venda=${respostas.p23}`;
 
   try {
     const response = await fetch("/api/diagnostico", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ prompt }),
-});
-
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt }),
+    });
     if (!response.ok) throw new Error(`API ${response.status}`);
-const data = await response.json();
-return data;
+    const data = await response.json();
+    return data;
   } catch (err) {
     console.error("Erro API:", err);
     return null;
@@ -201,8 +209,6 @@ async function enviarParaMake(dados) {
     });
   } catch (e) { console.error("Webhook falhou:", e); }
 }
-
-// ── UI helpers ──────────────────────────────────────────────
 
 const s = {
   green: "#2d6a2d", greenLight: "#5a9e3a", greenDark: "#1a3d1a",
@@ -328,8 +334,6 @@ function ScoreBarra({ score }) {
 
 const bodyTxt = { fontFamily:"'DM Sans',sans-serif", fontSize:14, color:s.text, lineHeight:1.7, margin:0 };
 
-// ── Telas ────────────────────────────────────────────────────
-
 function TelaInicial({ onStart }) {
   return (
     <div style={{ textAlign:"center", padding:"20px 0" }}>
@@ -343,7 +347,7 @@ function TelaInicial({ onStart }) {
         Responda algumas perguntas e receba um diagnóstico personalizado sobre mercado local, espaço, investimento, riscos e próximos passos para começar do jeito certo.
       </p>
       <div style={{ background:"#f5faf5", border:`1px solid ${s.greenBorder}`, borderRadius:12, padding:"14px 18px", marginBottom:28, textAlign:"left" }}>
-        {["✅ Diagnóstico personalizado por IA","✅ Simulação de retorno realista por fases","✅ Plano dos próximos 15 dias","✅ Resultado enviado para seu e-mail"].map(t => (
+        {["✅ Diagnóstico personalizado por IA","✅ Simulação de retorno realista por fases","✅ Análise de riscos e mercado local","✅ Resultado enviado para seu e-mail"].map(t => (
           <div key={t} style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:s.green, fontWeight:500, padding:"3px 0" }}>{t}</div>
         ))}
       </div>
@@ -431,7 +435,13 @@ function TelaPerguntas({ perguntasEtapa, etapaAtual, totalEtapas, respostas, onR
 }
 
 function TelaCarregando() {
-  const msgs = ["Analisando seu mercado local...","Calculando potencial de produção...","Identificando seus principais riscos...","Montando seu plano de 15 dias...","Finalizando seu diagnóstico..."];
+  const msgs = [
+    "Analisando seu perfil e mercado local...",
+    "Calculando seu potencial de retorno...",
+    "Mapeando seus principais riscos...",
+    "Preparando seu diagnóstico personalizado...",
+    "Quase lá, finalizando tudo para você...",
+  ];
   const [idx, setIdx] = useState(0);
   useEffect(() => { const t = setInterval(()=>setIdx(i=>(i+1)%msgs.length),2200); return ()=>clearInterval(t); }, []);
   return (
@@ -441,6 +451,11 @@ function TelaCarregando() {
       <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#4a6b4a", minHeight:24 }}>{msgs[idx]}</p>
       <div style={{ display:"flex", justifyContent:"center", gap:6, marginTop:24 }}>
         {[0,1,2].map(i=><div key={i} style={{ width:8, height:8, borderRadius:"50%", background:s.green, animation:`bounce 1.2s ${i*.2}s infinite` }} />)}
+      </div>
+      <div style={{ marginTop:20, padding:"12px 16px", background:"#f5faf5", borderRadius:10, border:"1px solid #d4e8d4", maxWidth:300, margin:"20px auto 0" }}>
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#4a6b4a", lineHeight:1.6, margin:0 }}>
+          ⏱️ Seu diagnóstico leva cerca de <strong>1 minuto</strong> para ser gerado — já já aparece para você.
+        </p>
       </div>
       <style>{`@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-8px);opacity:1}}`}</style>
     </div>
@@ -485,18 +500,13 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado }) {
       </Card>
 
       <Card>
-        <SecTitle emoji="🌱" titulo="Seu caminho de produção" />
-        <p style={bodyTxt}>{diagnostico.bloco3_producao}</p>
+        <SecTitle emoji="📈" titulo="Diagnóstico de tempo e retorno de investimento" />
+        <p style={{ ...bodyTxt, whiteSpace:"pre-line" }}>{diagnostico.bloco3_retorno}</p>
       </Card>
 
       <Card>
-        <SecTitle emoji="💰" titulo="Investimento e primeiros passos" />
+        <SecTitle emoji="💰" titulo="Diagnóstico do investimento inicial" />
         <p style={bodyTxt}>{diagnostico.bloco4_investimento}</p>
-        <div style={{ background:"#fff8e8", border:"1px solid #f0d080", borderRadius:10, padding:"12px 14px", marginTop:14 }}>
-          <p style={{ ...bodyTxt, color:"#7a5500", fontSize:13 }}>
-            ⚠️ <strong>O maior erro do iniciante:</strong> comprar semente difícil, montar estrutura cara antes de ter cliente, gastar em embalagem antes de vender. Isso custa dinheiro e tempo — e é o motivo número 1 de desistência.
-          </p>
-        </div>
       </Card>
 
       <Card>
@@ -514,14 +524,9 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado }) {
         <p style={bodyTxt}>{diagnostico.bloco6_consistencia}</p>
       </Card>
 
-      <Card>
-        <SecTitle emoji="📋" titulo="Seu plano para os próximos 15 dias" />
-        {Array.isArray(diagnostico.bloco7_plano15dias) && diagnostico.bloco7_plano15dias.map((p,i) => (
-          <div key={i} style={{ display:"flex", gap:12, padding:"10px 0", borderBottom:i<diagnostico.bloco7_plano15dias.length-1?"1px solid #f0f5f0":"none", alignItems:"flex-start" }}>
-            <div style={{ width:24, height:24, borderRadius:"50%", background:s.green, color:"#fff", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'DM Sans',sans-serif", fontSize:11, fontWeight:700, flexShrink:0 }}>{i+1}</div>
-            <p style={{ ...bodyTxt, margin:0 }}>{p}</p>
-          </div>
-        ))}
+      <Card style={{ background:"linear-gradient(135deg,#f0f9f0,#e0f2e0)", border:"2px solid #2d6a2d" }}>
+        <SecTitle emoji="🎯" titulo="Seu próximo passo" />
+        <p style={{ ...bodyTxt, whiteSpace:"pre-line" }}>{diagnostico.bloco7_proximo_passo}</p>
       </Card>
 
       <Card style={{ background:`linear-gradient(135deg,${s.greenDark},${s.green})`, border:"none" }}>
@@ -532,21 +537,20 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado }) {
         <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, lineHeight:1.7, color:"#d4f0d4", fontStyle:"italic", margin:0 }}>{diagnostico.bloco8_transformacao}</p>
       </Card>
 
-      <div style={{ background:"#fff", borderRadius:16, padding:24, boxShadow:"0 2px 20px rgba(45,106,45,.08)", border:"1px solid #e8f0e8", textAlign:"center" }}>
-        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:s.greenDark, marginBottom:8 }}>Agora que você sabe seu potencial e seus riscos. Seu próximo passo está aqui.</h3>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#4a6b4a", marginBottom:20, lineHeight:1.6 }}>Você já está matriculado no curso gratuito. O próximo passo é assistir as aulas preparatórias e entender o método antes de comprar qualquer insumo ou montar qualquer estrutura.</p>
-        {/* CTA PRINCIPAL — edite CONFIG.CTA_CURSO_GRATUITO */}
-        <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:`linear-gradient(135deg,${s.green},#3d8c3d)`, color:"#fff", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(45,106,45,.35)", marginBottom:10, boxSizing:"border-box" }}>
-         Assistir aulas preparatórias →
+      <div style={{ background:`linear-gradient(135deg,${s.greenDark},${s.green})`, borderRadius:16, padding:24, textAlign:"center" }}>
+        <div style={{ fontSize:32, marginBottom:12 }}>🌿</div>
+        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:"#fff", marginBottom:10 }}>Esteja ao vivo. Não assista o replay.</h3>
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", marginBottom:20, lineHeight:1.6 }}>
+          Quem assiste ao vivo sai com clareza e decisão. Quem vê depois — adia mais uma vez.
+        </p>
+        <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:"#fff", color:s.greenDark, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(0,0,0,.2)", marginBottom:12, boxSizing:"border-box" }}>
+          Assistir aulas preparatórias →
         </a>
-       
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"#9ab89a", marginTop:12 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:4 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
       </div>
     </div>
   );
 }
-
-// ── App principal ────────────────────────────────────────────
 
 export default function DiagnosticoMicroverdes() {
   const [tela, setTela] = useState("inicio");
