@@ -478,10 +478,6 @@ function TelaErro({ onVoltar }) {
 }
 function BlocoRetorno({ texto, respostas }) {
   if (!texto) return null;
-  const linhas = texto.split(/(?=FASE [1-4])/i).filter(l => l.trim());
-  const retorno = texto.match(/retorno[^.]+\./i)?.[0] || "";
-  const meta = texto.match(/R\$\s*5\.000[^.]+\./i)?.[0] || "";
-
   return (
     <div>
       <div style={{ background:"#f5faf5", border:"1px solid #d4e8d4", borderRadius:10, padding:"10px 14px", marginBottom:14 }}>
@@ -490,29 +486,7 @@ function BlocoRetorno({ texto, respostas }) {
         {respostas?.p12 && <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#3d5c3d", margin:"2px 0" }}>• Espaço: <strong>{respostas.p12}</strong></p>}
         {respostas?.p18 && <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#3d5c3d", margin:"2px 0" }}>• Tempo por dia: <strong>{respostas.p18}</strong></p>}
       </div>
-      <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:14 }}>
-        {linhas.map((l, i) => {
-          const cores = ["#e8f5e8","#e8f0ff","#fff8e8","#f5e8ff"];
-          const bordas = ["#b8d8b8","#b8c8f8","#f0d080","#d0a8f8"];
-          return (
-            <div key={i} style={{ background:cores[i]||"#f5faf5", border:`1.5px solid ${bordas[i]||"#d4e8d4"}`, borderRadius:10, padding:"10px 14px" }}>
-              <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#1a3d1a", lineHeight:1.6, margin:0 }}>{l.trim()}</p>
-            </div>
-          );
-        })}
-      </div>
-      {(retorno || meta) && (
-        <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
-          {retorno && <div style={{ background:"#fff8e8", border:"1px solid #f0d080", borderRadius:10, padding:"10px 12px" }}>
-            <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:10, color:"#7a5500", fontWeight:700, textTransform:"uppercase", marginBottom:4 }}>💰 Retorno estimado</p>
-            <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#7a5500", lineHeight:1.5, margin:0 }}>{retorno}</p>
-          </div>}
-          {meta && <div style={{ background:"#e8f5e8", border:"1px solid #b8d8b8", borderRadius:10, padding:"10px 12px" }}>
-            <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:10, color:"#2d6a2d", fontWeight:700, textTransform:"uppercase", marginBottom:4 }}>🎯 Meta R$ 5.000/mês</p>
-            <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#2d6a2d", lineHeight:1.5, margin:0 }}>{meta}</p>
-          </div>}
-        </div>
-      )}
+      <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#3d5c3d", lineHeight:1.8, whiteSpace:"pre-line" }}>{texto}</p>
     </div>
   );
 }
