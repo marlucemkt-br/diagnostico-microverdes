@@ -1,22 +1,36 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { prompt } = req.body;
+  try {
+    const { prompt } = req.body;
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.VITE_ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1800,
-      messages: [{ role: 'user', content: prompt }],
-    }),
-  });
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': process.env.VITE_ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1800,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
 
-  const data = await response.json();
-  res.status(200).json(data);
+    const data = await response.json();
+    const texto = data.content?.[0]?.text || '{}';
+    
+    try {
+      const parsed = JSON.parse(texto);
+      res.status(200).json(parsed);
+    } catch {
+      const match = texto.match(/\{[\s\S]*\}/);
+      const parsed = match ? JSON.parse(match[0]) : null;
+      res.status(200).json(parsed || {});
+    }
+  } catch (err) {
+    console.error('Erro:', err);
+    res.status(500).json({ error: err.message });
+  }
 }
