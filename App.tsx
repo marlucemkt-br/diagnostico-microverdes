@@ -177,20 +177,11 @@ Gere diagnóstico personalizado para ${nome}. Responda APENAS com JSON válido, 
 Respostas de ${nome}: objetivo=${respostas.p1} | momento=${respostas.p2} | preocupações=${preocupacoes} | cidade=${respostas.p4} | cidade próxima=${respostas.p5} | estabelecimentos=${respostas.p7} | concorrência=${respostas.p8} | público saudável=${respostas.p9} | espaço=${respostas.p11} | tamanho=${respostas.p12} | investimento=${respostas.p15} | tempo diário=${respostas.p18} | experiência comercial=${respostas.p21} | bloqueio venda=${respostas.p23}`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": CONFIG.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true",
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1800,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
+    const response = await fetch("/api/diagnostico", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ prompt }),
+});
 
     if (!response.ok) throw new Error(`API ${response.status}`);
     const data = await response.json();
