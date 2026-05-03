@@ -184,10 +184,8 @@ Respostas de ${nome}: objetivo=${respostas.p1} | momento=${respostas.p2} | preoc
 });
 
     if (!response.ok) throw new Error(`API ${response.status}`);
-    const data = await response.json();
-    const texto = data.content?.[0]?.text || "{}";
-    try { return JSON.parse(texto); }
-    catch { const m = texto.match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; }
+const data = await response.json();
+return data;
   } catch (err) {
     console.error("Erro API:", err);
     return null;
