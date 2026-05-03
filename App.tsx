@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const CONFIG = {
   MAKE_WEBHOOK_URL: "COLE_AQUI_A_URL_DO_WEBHOOK_DO_MAKE",
   CTA_CURSO_GRATUITO: "https://youtube.com/playlist?list=PLiaMfvC6IZ-MkhteJIG_BX95iqZb0jcho&si=C9M63La3tKn9m9Nu",
-  ANTHROPIC_API_KEY: "ANTHROPIC_API_KEY: "COLE_AQUI_SUA_CHAVE_DE_API_DA_ANTHROPIC",
+  ANTHROPIC_API_KEY: import.meta.env.VITE_ANTHROPIC_API_KEY || "",
   // PREVIEW_MODE: true  → usa diagnóstico simulado (teste de layout, sem API)
   // PREVIEW_MODE: false → usa API real (produção)
   PREVIEW_MODE: false,
