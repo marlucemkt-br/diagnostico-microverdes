@@ -539,9 +539,17 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado }) {
 
       <div style={{ background:`linear-gradient(135deg,${s.greenDark},${s.green})`, borderRadius:16, padding:24, textAlign:"center" }}>
         <div style={{ fontSize:32, marginBottom:12 }}>🌿</div>
-        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:"#fff", marginBottom:10 }}>Esteja ao vivo. Não assista o replay.</h3>
+        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:"#fff", marginBottom:10 }}>Agora que você sabe seu potencial e seus riscos. Seu próximo passo está aqui.</h3>
         <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", marginBottom:20, lineHeight:1.6 }}>
-          Quem assiste ao vivo sai com clareza e decisão. Quem vê depois — adia mais uma vez.
+          Você já está matriculado no Mini Curso gratuito que acontece nos dias 11, 13 e 14 de maio. 
+
+
+
+ O próximo passo é assistir as aulas preparatórias para o Mini Curso, assim você vai chegar com informações suficientes para aproveitar o conteúdo . 
+
+
+
+Dica: Não compre qualquer insumo ou monte qualquer estrutura antes de assistir as 3 aulas Mini Curso.
         </p>
         <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:"#fff", color:s.greenDark, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(0,0,0,.2)", marginBottom:12, boxSizing:"border-box" }}>
           Assistir aulas preparatórias →
