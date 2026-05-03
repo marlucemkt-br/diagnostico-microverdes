@@ -562,7 +562,7 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado, respostas })
 
 
 
-Dica: Não compre qualquer insumo ou monte qualquer estrutura antes de assistir as 3 aulas Mini Curso.
+Dica: Não compre qualquer insumo ou monte qualquer estrutura antes de assistir as 3 aulas do Mini Curso.
         </p>
         <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:"#fff", color:s.greenDark, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(0,0,0,.2)", marginBottom:12, boxSizing:"border-box" }}>
           Assistir aulas preparatórias →
