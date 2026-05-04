@@ -567,6 +567,14 @@ Dica: Não compre qualquer insumo ou monte qualquer estrutura antes de assistir 
         <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:"#fff", color:s.greenDark, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(0,0,0,.2)", marginBottom:12, boxSizing:"border-box" }}>
           Assistir aulas preparatórias →
         </a>
+        <div style={{ marginTop:16, paddingTop:16, borderTop:"1px solid rgba(255,255,255,0.2)" }}>
+  <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#d4f0d4", marginBottom:12, lineHeight:1.6 }}>
+    Se você ainda não se inscreveu para o Mini Curso gratuito que vai começar dia 11/05, clique no botão abaixo e se inscreva:
+  </p>
+  <a href="https://oi.marcosmicroverdes.com.br/cadastro?utm_id=maio26&utm_campaign=maio26&utm_source=whatsapp&utm_medium=organico&utm_content=wa&utm_term=diagnostico" style={{ display:"block", width:"100%", padding:14, background:"transparent", color:"#fff", border:"2px solid #fff", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, boxSizing:"border-box", textAlign:"center" }}>
+    ME INSCREVER NO MINI CURSO GRATUITO →
+  </a>
+</div>
         <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:4 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
       </div>
     </div>
