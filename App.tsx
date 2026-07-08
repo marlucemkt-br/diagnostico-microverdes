@@ -20,7 +20,7 @@ const MOCK_DIAGNOSTICO = {
   bloco4_investimento: "Microverdes é um dos negócios mais democráticos do Brasil para começar — pouco capital, retorno rápido quando feito certo. Mas não é jogo do tigrinho: requer investimento, seriedade, estudo, testes e trabalho. Com o valor disponível, seu primeiro passo é montar uma estrutura simples e validar antes de escalar. Evite os erros mais comuns: comprar semente difícil antes de validar o mercado local, montar estrutura cara antes de ter cliente confirmado, gastar em embalagem premium antes de ter pedido recorrente. Esses erros custam dinheiro e tempo e são o motivo número 1 de desistência. Nas aulas ao vivo, Marcos mostra exatamente como evitar esses erros desde o primeiro dia.",
   bloco5_riscos: [
     "Produzir antes de ter cliente confirmado — o risco de ficar com bandeja pronta e sem comprador é real e desmotiva rápido. Nas aulas ao vivo, Marcos ensina como abordar clientes antes mesmo de plantar.",
-    "Comprar sementes erradas no início — erros de germinação custam tempo, dinheiro e confiança. No workshop, Marcos mostra quais variedades funcionam para quem está começando.",
+    "Comprar sementes erradas no início — erros de germinação custam tempo, dinheiro e confiança. No mini curso, Marcos mostra quais variedades funcionam para quem está começando.",
     "Começar sozinho, pesquisando informações soltas na internet sem uma jornada definida — isso dá margem para outro produtor local entrar mais preparado e ser pioneiro na sua região. O mercado de microverdes no Brasil ainda não saturou. A janela de pioneirismo está aberta — mas não fica aberta para sempre. Solução: estar ao vivo com Marcos e seguir uma jornada estruturada.",
     "Não manter consistência nas primeiras entregas — uma falha para um restaurante fecha essa porta definitivamente. Nas aulas ao vivo, Marcos explica como organizar produção e entrega para nunca furar um cliente.",
   ],
@@ -616,6 +616,10 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado, respostas })
             SABER MAIS SOBRE O WORKSHOP →
           </a>
         </div>
+
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:16 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
+      </div>
+    </div>
   );
 }
 
