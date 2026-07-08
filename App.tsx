@@ -38,7 +38,7 @@ const PERGUNTAS = [
   {
     id: "p2", etapa: 1, tipo: "single", titulo: "Seu momento",
     pergunta: "Qual frase mais combina com seu momento atual?",
-    opcoes: ["Estou cansado do meu trabalho atual","Quero mais tempo com minha família","Quero uma renda mais estável","Quero trabalhar com algo ligado à natureza","Quero parar de depender só de salário","Quero empreender, mas tenho medo de errar","Quero complementar minha renda sem largar tudo agora"],
+    opcoes: ["Estou cansado do meu trabalho atual","Quero mais tempo com minha família","Quero uma renda mais estável","Quero trabalhar com algo ligado à natureza","Quero parar de depender só de salário","Quero empreender, mas tenho medo de errar","Quero complementar minha renda sem largar tudo agora","Já cultivo e quero escalar"],
   },
   {
     id: "p3", etapa: 1, tipo: "multi", titulo: "Suas preocupações",
@@ -95,7 +95,7 @@ const PERGUNTAS = [
   {
     id: "p21", etapa: 4, tipo: "single", titulo: "Experiência comercial",
     pergunta: "Você já vendeu algum produto ou serviço antes?",
-    opcoes: ["Sim, vendo atualmente","Já vendi no passado","Pouca experiência","Nunca vendi","Tenho medo de vender"],
+    opcoes: ["Sim, vendo atualmente","Já vendi no passado","Pouca experiência","Nunca vendi","Tenho medo de vender","Estou tranquilo em vender"],
   },
   {
     id: "p23", etapa: 4, tipo: "single", titulo: "Bloqueio de venda",
