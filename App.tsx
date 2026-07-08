@@ -616,19 +616,6 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado, respostas })
             SABER MAIS SOBRE O WORKSHOP →
           </a>
         </div>
-
-        <div style={{ marginTop:22, paddingTop:18, borderTop:"1px solid rgba(255,255,255,0.2)" }}>
-          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#d4f0d4", marginBottom:12, lineHeight:1.6 }}>
-            Se você ainda não se inscreveu para o Mini Curso gratuito que vai começar dia 11/05, clique no botão abaixo e se inscreva:
-          </p>
-          <a href="https://oi.marcosmicroverdes.com.br/cadastro?utm_id=maio26&utm_campaign=maio26&utm_source=whatsapp&utm_medium=organico&utm_content=wa&utm_term=diagnostico" style={{ display:"block", width:"100%", padding:14, background:"transparent", color:"#fff", border:"2px solid #fff", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, boxSizing:"border-box", textAlign:"center" }}>
-            ME INSCREVER NO MINI CURSO GRATUITO →
-          </a>
-        </div>
-
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:16 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
-      </div>
-    </div>
   );
 }
 
