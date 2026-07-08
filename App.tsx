@@ -41,10 +41,13 @@ const PERGUNTAS = [
     opcoes: ["Estou cansado do meu trabalho atual","Quero mais tempo com minha família","Quero uma renda mais estável","Quero trabalhar com algo ligado à natureza","Quero parar de depender só de salário","Quero empreender, mas tenho medo de errar","Quero complementar minha renda sem largar tudo agora","Já cultivo e quero escalar"],
   },
   {
-    id: "p3", etapa: 1, tipo: "multi", titulo: "Suas preocupações",
-    pergunta: "Quais são suas maiores preocupações para começar?",
-    subtitulo: "Selecione até 3 opções",
-    maxSelect: 3,
+    id: "p6", etapa: 1, tipo: "texto", titulo: "Desafio de vida",
+    pergunta: "Qual desafio da sua vida o negócio de microverdes pode te ajudar?",
+    placeholder: "Escreva com suas palavras...",
+  },
+  {
+    id: "p3", etapa: 1, tipo: "single", titulo: "Sua preocupação",
+    pergunta: "Qual sua maior preocupação para começar?",
     opcoes: ["Não conseguir vender","Minha cidade não ter mercado","Não ter dinheiro para investir","Não ter tempo","Não saber produzir","Não saber por onde começar","Investir e não ter retorno","Fazer tudo sozinho e errar"],
   },
   {
@@ -88,6 +91,11 @@ const PERGUNTAS = [
     opcoes: ["Menos de R$ 500","R$ 500 a R$ 1.500","R$ 1.500 a R$ 3.000","Acima de R$ 3.000","Ainda não tenho valor disponível, mas quero me planejar"],
   },
   {
+    id: "p16", etapa: 3, tipo: "texto", titulo: "Maior desafio",
+    pergunta: "Qual o maior desafio você tem, fora tempo e dinheiro, para conseguir faturar R$ 1.000 por m² de cultivo de microverdes todos os meses?",
+    placeholder: "Escreva com suas palavras...",
+  },
+  {
     id: "p18", etapa: 4, tipo: "single", titulo: "Seu tempo",
     pergunta: "Quanto tempo por dia você teria para se dedicar no começo?",
     opcoes: ["Menos de 30 minutos","30 minutos a 1 hora","1 a 2 horas","2 a 4 horas","Mais de 4 horas"],
@@ -101,6 +109,11 @@ const PERGUNTAS = [
     id: "p23", etapa: 4, tipo: "single", titulo: "Bloqueio de venda",
     pergunta: "O que mais te trava na venda?",
     opcoes: ["Não saber o que falar","Medo de rejeição","Não saber o preço","Não saber apresentar o produto","Achar que ninguém conhece microverdes","Não saber onde encontrar clientes"],
+  },
+  {
+    id: "p24", etapa: 4, tipo: "texto", titulo: "O que vai mudar",
+    pergunta: "O que você acredita que vai mudar na sua vida? Me conta seu objetivo com isso.",
+    placeholder: "Escreva com suas palavras...",
   },
 ];
 
@@ -291,6 +304,26 @@ function OpcaoMulti({ texto, selecionado, onClick, desabilitado }) {
   );
 }
 
+function CampoTexto({ valor, placeholder, onChange }) {
+  return (
+    <textarea
+      value={valor}
+      onChange={e => onChange(e.target.value)}
+      placeholder={placeholder || "Escreva sua resposta..."}
+      rows={4}
+      style={{
+        width:"100%", padding:"13px 16px", borderRadius:10,
+        border:"1.5px solid #d4e0d4", background:"#fafcfa",
+        fontFamily:"'DM Sans',sans-serif", fontSize:14, color:s.text,
+        outline:"none", resize:"vertical", boxSizing:"border-box",
+        lineHeight:1.6, transition:"border-color .18s ease",
+      }}
+      onFocus={e => e.target.style.borderColor = s.green}
+      onBlur={e => e.target.style.borderColor = "#d4e0d4"}
+    />
+  );
+}
+
 function Card({ children, style={} }) {
   return (
     <div style={{ background:"#fff", borderRadius:16, padding:24, boxShadow:"0 2px 20px rgba(45,106,45,.08)", border:"1px solid #e8f0e8", marginBottom:16, ...style }}>
@@ -393,9 +426,11 @@ function TelaCadastro({ onNext }) {
 }
 
 function TelaPerguntas({ perguntasEtapa, etapaAtual, totalEtapas, respostas, onResposta, onNext, onBack }) {
-  const todasOk = perguntasEtapa.every(p =>
-    p.tipo==="multi" ? (Array.isArray(respostas[p.id])&&respostas[p.id].length>0) : !!respostas[p.id]
-  );
+  const todasOk = perguntasEtapa.every(p => {
+    if (p.tipo === "multi") return Array.isArray(respostas[p.id]) && respostas[p.id].length > 0;
+    if (p.tipo === "texto") return !!(respostas[p.id] && respostas[p.id].trim().length > 0);
+    return !!respostas[p.id];
+  });
 
   const toggleMulti = (id, opcao, max) => {
     const atual = Array.isArray(respostas[id]) ? respostas[id] : [];
@@ -417,9 +452,11 @@ function TelaPerguntas({ perguntasEtapa, etapaAtual, totalEtapas, respostas, onR
                 {p.subtitulo}{p.tipo==="multi"&&selMulti.length>0&&` · ${selMulti.length}/${p.maxSelect} selecionadas`}
               </p>
             )}
-            {p.tipo==="multi"
-              ? p.opcoes.map(op => <OpcaoMulti key={op} texto={op} selecionado={selMulti.includes(op)} desabilitado={limiteOk} onClick={()=>toggleMulti(p.id,op,p.maxSelect)} />)
-              : p.opcoes.map(op => <OpcaoSingle key={op} texto={op} selecionado={respostas[p.id]===op} onClick={()=>onResposta(p.id,op)} />)
+            {p.tipo==="texto"
+              ? <CampoTexto valor={respostas[p.id]||""} placeholder={p.placeholder} onChange={val=>onResposta(p.id,val)} />
+              : p.tipo==="multi"
+                ? p.opcoes.map(op => <OpcaoMulti key={op} texto={op} selecionado={selMulti.includes(op)} desabilitado={limiteOk} onClick={()=>toggleMulti(p.id,op,p.maxSelect)} />)
+                : p.opcoes.map(op => <OpcaoSingle key={op} texto={op} selecionado={respostas[p.id]===op} onClick={()=>onResposta(p.id,op)} />)
             }
           </div>
         );
@@ -537,45 +574,59 @@ function TelaDiagnostico({ diagnostico, nome, perfil, scoreMercado, respostas })
         <p style={bodyTxt}>{diagnostico.bloco6_consistencia}</p>
       </Card>
 
-      <Card style={{ background:"linear-gradient(135deg,#f0f9f0,#e0f2e0)", border:"2px solid #2d6a2d" }}>
-        <SecTitle emoji="🎯" titulo="Seu próximo passo" />
-        <p style={{ ...bodyTxt, whiteSpace:"pre-line" }}>{diagnostico.bloco7_proximo_passo}</p>
-      </Card>
-
-      <Card style={{ background:`linear-gradient(135deg,${s.greenDark},${s.green})`, border:"none" }}>
-        <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:12 }}>
-          <span style={{ fontSize:20 }}>✨</span>
-          <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:16, color:"#fff", margin:0 }}>Sua transformação possível</h3>
-        </div>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, lineHeight:1.7, color:"#d4f0d4", fontStyle:"italic", margin:0 }}>{diagnostico.bloco8_transformacao}</p>
-      </Card>
-
       <div style={{ background:`linear-gradient(135deg,${s.greenDark},${s.green})`, borderRadius:16, padding:24, textAlign:"center" }}>
         <div style={{ fontSize:32, marginBottom:12 }}>🌿</div>
-        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:18, color:"#fff", marginBottom:10 }}>Agora que você sabe seu potencial e seus riscos. Seu próximo passo está aqui.</h3>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", marginBottom:20, lineHeight:1.6 }}>
-          Você já está matriculado no Mini Curso gratuito que acontece nos dias 11, 13 e 14 de maio. 
 
+        <div style={{ display:"inline-block", background:"rgba(255,255,255,0.15)", border:"1px solid rgba(255,255,255,0.35)", borderRadius:99, padding:"7px 18px", marginBottom:16 }}>
+          <span style={{ fontFamily:"'DM Sans',sans-serif", fontSize:12, color:"#fff", fontWeight:800, letterSpacing:"0.06em", textTransform:"uppercase" }}>
+            Seu próximo passo: Workshop de implementação · ao vivo
+          </span>
+        </div>
 
+        <h3 style={{ fontFamily:"'Playfair Display',serif", fontSize:19, color:"#fff", marginBottom:14, lineHeight:1.35 }}>
+          Em 1 dia você sai com o Plano Prático da Germinação à venda: para transformar 1m² em R$ 1.000 recorrentes.
+        </h3>
 
- O próximo passo é assistir as aulas preparatórias para o Mini Curso, assim você vai chegar com informações suficientes para aproveitar o conteúdo . 
-
-
-
-Dica: Não compre qualquer insumo ou monte qualquer estrutura antes de assistir as 3 aulas do Mini Curso.
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#fff", fontWeight:700, marginBottom:10, lineHeight:1.6 }}>
+          Isso é diferente de tudo que já fiz.
         </p>
-        <a href={CONFIG.CTA_CURSO_GRATUITO} style={{ display:"block", width:"100%", padding:16, background:"#fff", color:s.greenDark, borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:700, boxShadow:"0 4px 16px rgba(0,0,0,.2)", marginBottom:12, boxSizing:"border-box" }}>
-          Assistir aulas preparatórias →
+
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", marginBottom:22, lineHeight:1.65 }}>
+          Em um domingo prático, de 9h às 17h, você vai saber onde cultivar, o que cultivar primeiro, como mapear compradores na sua cidade e buscar suas primeiras vendas.
+        </p>
+
+        <a href="https://workshop.marcosmicroverdes.com.br/?utm_id=workshop0626&utm_campaign=workshop0626&utm_source=email&utm_medium=diagnostico&utm_content=&utm_term=" style={{ display:"block", width:"100%", padding:16, background:"#ffb100", color:"#1a3d1a", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:800, boxShadow:"0 4px 18px rgba(0,0,0,.3)", marginBottom:24, boxSizing:"border-box" }}>
+          SABER MAIS SOBRE O WORKSHOP →
         </a>
-        <div style={{ marginTop:16, paddingTop:16, borderTop:"1px solid rgba(255,255,255,0.2)" }}>
-  <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#d4f0d4", marginBottom:12, lineHeight:1.6 }}>
-    Se você ainda não se inscreveu para o Mini Curso gratuito que vai começar dia 11/05, clique no botão abaixo e se inscreva:
-  </p>
-  <a href="https://oi.marcosmicroverdes.com.br/cadastro?utm_id=maio26&utm_campaign=maio26&utm_source=whatsapp&utm_medium=organico&utm_content=wa&utm_term=diagnostico" style={{ display:"block", width:"100%", padding:14, background:"transparent", color:"#fff", border:"2px solid #fff", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, boxSizing:"border-box", textAlign:"center" }}>
-    ME INSCREVER NO MINI CURSO GRATUITO →
-  </a>
-</div>
-        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:4 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
+
+        <div style={{ borderTop:"1px solid rgba(255,255,255,0.2)", paddingTop:22, textAlign:"left" }}>
+          <h4 style={{ fontFamily:"'Playfair Display',serif", fontSize:16, color:"#fff", fontStyle:"italic", marginBottom:12, lineHeight:1.4 }}>
+            Venda antes de plantar: o caminho que muda tudo no começo
+          </h4>
+          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", lineHeight:1.7, marginBottom:10 }}>
+            O Primeiro m² Lucrativo existe para inverter essa lógica. Antes de você gastar um real com estrutura, você vai entender quem pode comprar microverdes na sua cidade. Vai mapear restaurantes, cafés, empórios, consumidores finais.
+          </p>
+          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", lineHeight:1.7, marginBottom:10 }}>
+            Esse é o mesmo caminho que percorri ao construir um negócio que hoje movimenta centenas de milhares de reais por ano, com quase 6 toneladas vendidas e mais de 300 alunos formados em todo o Brasil.
+          </p>
+          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:14, color:"#d4f0d4", lineHeight:1.7, marginBottom:22 }}>
+            Imagine terminar um domingo sabendo exatamente onde vai cultivar, o que vai plantar primeiro, quem vai procurar na sua cidade e o que vai falar quando chegar lá. Com um plano de 60 dias na mão.
+          </p>
+          <a href="https://workshop.marcosmicroverdes.com.br/?utm_id=workshop0626&utm_campaign=workshop0626&utm_source=email&utm_medium=diagnostico&utm_content=&utm_term=" style={{ display:"block", width:"100%", padding:16, background:"#ffb100", color:"#1a3d1a", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:15, fontWeight:800, boxSizing:"border-box", textAlign:"center" }}>
+            SABER MAIS SOBRE O WORKSHOP →
+          </a>
+        </div>
+
+        <div style={{ marginTop:22, paddingTop:18, borderTop:"1px solid rgba(255,255,255,0.2)" }}>
+          <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:13, color:"#d4f0d4", marginBottom:12, lineHeight:1.6 }}>
+            Se você ainda não se inscreveu para o Mini Curso gratuito que vai começar dia 11/05, clique no botão abaixo e se inscreva:
+          </p>
+          <a href="https://oi.marcosmicroverdes.com.br/cadastro?utm_id=maio26&utm_campaign=maio26&utm_source=whatsapp&utm_medium=organico&utm_content=wa&utm_term=diagnostico" style={{ display:"block", width:"100%", padding:14, background:"transparent", color:"#fff", border:"2px solid #fff", borderRadius:12, textDecoration:"none", fontFamily:"'DM Sans',sans-serif", fontSize:14, fontWeight:700, boxSizing:"border-box", textAlign:"center" }}>
+            ME INSCREVER NO MINI CURSO GRATUITO →
+          </a>
+        </div>
+
+        <p style={{ fontFamily:"'DM Sans',sans-serif", fontSize:11, color:"rgba(255,255,255,0.7)", marginTop:16 }}>📧 Seu diagnóstico completo foi enviado para o seu e-mail.</p>
       </div>
     </div>
   );
@@ -634,7 +685,7 @@ export default function DiagnosticoMicroverdes() {
           {tela==="perguntas" && <TelaPerguntas perguntasEtapa={perguntasPorEtapa(etapaAtual)} etapaAtual={etapaAtual} totalEtapas={totalEtapas} respostas={respostas} onResposta={handleResposta} onNext={handleNext} onBack={handleBack} />}
           {tela==="carregando"&& <TelaCarregando />}
           {tela==="erro"      && <TelaErro onVoltar={()=>{setEtapaAtual(totalEtapas);setTela("perguntas");}} />}
-          {tela==="resultado" && <TelaDiagnostico diagnostico={diagnostico} nome={cadastro.nome} perfil={perfil} scoreMercado={scoreMercado} />}
+          {tela==="resultado" && <TelaDiagnostico diagnostico={diagnostico} nome={cadastro.nome} perfil={perfil} scoreMercado={scoreMercado} respostas={respostas} />}
         </div>
       </div>
     </>
